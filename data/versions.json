@@ -1,0 +1,33 @@
+{
+ "country": "SO",
+ "acts": [
+  {
+   "slug": "provisional-constitution",
+   "short": "Provisional Constitution",
+   "title": "Provisional Constitution of the Federal Republic of Somalia (2012)",
+   "url": "https://parliament.gov.so/wp-content/uploads/2024/12/Provisional-Constitution-2012.pdf",
+   "versions": [
+    {
+     "from": "2012-08-01",
+     "units": 145,
+     "source_url": "https://parliament.gov.so/wp-content/uploads/2024/12/Provisional-Constitution-2012.pdf",
+     "sha256": "8359284c75a77086ffbd5b078619cc6c4a143035d9d7786027da4369f64c694f"
+    }
+   ]
+  },
+  {
+   "slug": "codice-penale",
+   "short": "Codice penale",
+   "title": "Codice penale della Repubblica Somala (Somali Penal Code), 1962, Italian text",
+   "url": "https://arcadia.sba.uniroma3.it/handle/2307/17142",
+   "versions": [
+    {
+     "from": "1964-04-03",
+     "units": 557,
+     "source_url": "https://arcadia.sba.uniroma3.it/bitstream/2307/17142/3/04_Codice%20Penale.pdf",
+     "sha256": "227bb93912f4a8be73f683998739719cde02f25b1c264ea251671f00b8b36661"
+    }
+   ]
+  }
+ ]
+}
