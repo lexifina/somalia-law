@@ -1,5 +1,10 @@
 # Somalia: law history in git
 
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="data/effort-dark.svg">
+<img alt="Somali law in this repository: what it holds, changes by the year they took effect, completeness against the official sources, and the correctness of what is held" src="data/effort-light.svg" width="880">
+</picture>
+
 The law of Somalia as a git history: one file per provision (an article, or a schedule of the Constitution), one commit per version on the day it took effect, and the law that made each change as the commit's author. Each act has one version so far; a later version is added as a new commit, so that `git log` and `git blame` show each change from this version on.
 
 Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Somalia's national law, which global-law reads at `somalia/national/acts/`.
