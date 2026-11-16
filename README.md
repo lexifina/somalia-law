@@ -59,6 +59,7 @@ The Constitution is credited to its publisher, the Federal Parliament of Somalia
 - Every commit's trailers parse; there are no merge commits, commit dates never go back and none is in the future. The corpus's sha256 is in [`data/corpus.sha256`](data/corpus.sha256); no second build has been compared yet.
 - The Penal Code's OCR text was compared with the scan on random pages: they matched except for misreadings like those below.
 - History is append-only: newer versions and new acts go on top (`tools/append.py`), and no published commit is rewritten.
+- [vulnerabilities/](vulnerabilities/): possible drafting mistakes in this law, found by global-law's detectors and checked by hand. Not run yet.
 
 ## What it does not show
 
@@ -79,6 +80,10 @@ The Constitution is credited to its publisher, the Federal Parliament of Somalia
 See [`LICENSE`](LICENSE). The Federal Parliament states no licence for the Constitution, which is reproduced with attribution; laws are not protected by copyright under Article 5 of the Somali Copyright Law (Law No. 66 of 7 September 1977), though whether that law is still applied is not settled. Lexifina's arrangement, commit messages and tools are CC BY 4.0.
 
 No model wrote, translated or corrected legal text, and no model runs at build time; the scripts were written by Claude Code under Lexifina's direction, and the Penal Code was read by OCR (see [`REPRODUCE.md`](REPRODUCE.md)).
+
+## Visualisations
+
+- [visualisations/](visualisations/): charts drawn from this repository. Not drawn yet.
 
 ## More
 
