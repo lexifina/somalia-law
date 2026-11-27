@@ -1,0 +1,27 @@
+{
+  "corpus": "so/national/acts",
+  "name": "Somali law: the Provisional Constitution, codes, laws and regulations of Somalia, with Somaliland and Puntland in their own folders",
+  "label": "Somalia",
+  "language": "en",
+  "dates": {
+    "commit": "in-force",
+    "other_trailers": [
+      "In-force-basis",
+      "Source",
+      "Kind"
+    ],
+    "time": "12:00 Africa/Mogadishu (UTC+3)"
+  },
+  "in_force_trailer": "In-force",
+  "has_future_branch": false,
+  "author": "the enacting law for a law with a number; else the publisher of the text",
+  "citation": {
+    "file": "((?:(?:somaliland|puntland)/)?(?:(?:acts|subsidiary)/[0-9]{4}/[^/]+|codes/[^/]+|constitution))/art-0*([0-9]+[a-z-]*)\\.md",
+    "cites": "(^|[^0-9])(article|art\\.?|qodobka) ?{n}\\b"
+  },
+  "sources": [
+    "https://parliament.gov.so",
+    "https://faolex.fao.org",
+    "https://arcadia.sba.uniroma3.it/handle/2307/17142"
+  ]
+}
