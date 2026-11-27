@@ -8,6 +8,8 @@ This file is written by the build on 2026-10-30, the day the source data was ret
 | --- | --- | --- | --- |
 | Federal Parliament of Somalia: Provisional Constitution 2012 (English) | <https://parliament.gov.so/wp-content/uploads/2024/12/Provisional-Constitution-2012.pdf> | 2026-10-29 | no licence stated |
 | Università Roma Tre, Archivio Leggi della Somalia (1950-1989): Codice Penale (scan of the Bollettino Ufficiale) | <https://arcadia.sba.uniroma3.it/handle/2307/17142> | 2026-10-30 | Laws are not protected by copyright: Somali Democratic Republic Copyright Law No. 66 of 7 Sept 1977, Art. 5 (laws and government regulations) |
+| Federal Parliament of Somalia: media library (`/wp-json/wp/v2/media`) | <https://parliament.gov.so> | 2026-11-27 | no licence stated |
+| FAOLEX (FAO): Somalia records from the public sitemaps | <https://faolex.fao.org> | 2026-11-27 | FAO terms: non-commercial reuse with acknowledgement |
 
 Every word of law in this repository comes from these sources. Lexifina reads them and records each act's dated versions, and the laws that made each change, in one corpus file. This repository is built from that file.
 
@@ -74,3 +76,7 @@ The commit messages are written by `build.py` from the source data.
 Model use at data-build time:
 - Claude Code wrote the parser; it did not write or alter any legal text. 0 model calls at data-build time.
 - OCR with tesseract 5.4 (ita) of 208 page images of the Penal Code; no model-generated text. Article boundaries and numbers found by a script.
+
+## Later additions (runner, from 27 November 2026)
+
+Laws added after the first build are appended by `scripts/somalia-law/runner` (`so_fetch.py` fetches, `so_build.py` builds and pushes, one commit per version). Each commit names its source and the basis of its date in its trailers; [`STRUCTURE.md`](STRUCTURE.md) lists the bases. Only text layers the PDFs already carry are read (no OCR). The two first-build folders were moved, by a pure-rename commit, to `constitution/` and `codes/penal-code/`.
