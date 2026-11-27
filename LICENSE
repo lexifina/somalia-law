@@ -1,6 +1,6 @@
 Text: Provisional Constitution of the Federal Republic of Somalia, adopted 1 August 2012 (English version), as published on the website of the Federal Parliament of Somalia (https://parliament.gov.so/wp-content/uploads/2024/12/Provisional-Constitution-2012.pdf). The site states no licence; the official legal text is reproduced for reference with attribution to the publisher.
 
-The arrangement of this repository, its commit messages and tools are by Lexifina and may be reused under the Creative Commons Attribution 4.0 International licence (https://creativecommons.org/licenses/by/4.0/). This repository is not legal advice and not an official publication.
+The arrangement of this repository, its commit messages and tools are by Lexifina and are dedicated to the public domain under CC0 1.0 Universal (https://creativecommons.org/publicdomain/zero/1.0/). This repository is not legal advice and not an official publication.
 
 Penal Code (Codice penale, Decreto legislativo 16 dicembre 1962, n. 5): Italian text recognised by OCR from a scan
 of a printed edition of the code (the decree note gives its publication in the Bollettino Ufficiale, Supplemento n. 1 al n. 10 of 2 October 1963) held by Universita Roma Tre, Archivio Leggi
@@ -13,3 +13,7 @@ main provisions at https://www.somalilandlaw.com/somaliland_copyright_law.html (
 No. 66 is still applied in Somalia is not settled, and no later copyright act was found).
 Changes made by Lexifina: OCR; removal of running heads, rule lines, footnote markers and headings; joining of wrapped
 lines and hyphenated words; paragraph numbers normalised. The wording was not otherwise changed.
+
+FAOLEX (Food and Agriculture Organization of the United Nations), https://faolex.fao.org: copies of laws and regulations of Somalia, Somaliland and Puntland, each credited in its commit (Source, Record and Source-status trailers). FAO allows its information products to be copied and reused for non-commercial purposes with acknowledgement of FAO as the source (https://www.fao.org/contact-us/terms/en/); the laws themselves are official texts, not protected by copyright under Article 5 of Law No. 66 of 1977 (above).
+
+Federal Parliament of Somalia, https://parliament.gov.so: also the Somali text of the Provisional Constitution (2012) and the English text of the 1960 Constitution as amended to 31 December 1963; no licence stated, reproduced with attribution.

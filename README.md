@@ -9,20 +9,20 @@ The law of Somalia as a git history: one file per provision (an article, or a sc
 
 Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Somalia's national law, which global-law reads at `somalia/national/acts/`.
 
-**What is in it now:** two acts, each in one version: the Provisional Constitution of the Federal Republic of Somalia, adopted on 1 August 2012 (143 articles and 2 schedules), and the Penal Code of 1962 (Decreto legislativo 16 dicembre 1962, n. 5; articles 1 to 565, in 557 files): 702 provision files in all. [`data/versions.json`](data/versions.json) lists both acts with their sources, and each act's folder has a `README.md` listing its provisions.
+**What is in it now:** 26 instruments in 1655 provision files: the Provisional Constitution (2012, English and Somali texts), the 1960 Constitution (as amended to 1963), the Penal Code (1962) and the Maritime Code (1959), federal and pre-1991 laws and regulations, and laws of Somaliland and Puntland in their own folders. [`STRUCTURE.md`](STRUCTURE.md) gives the layout and the dating rules.
 
-Each act is in its own folder, one file per article: `provisional-constitution/art-024.md` is Article 24 (Labour Relations) of the Constitution, and `codice-penale/art-001.md` is Article 1 of the Penal Code.
+Each act is in its own folder, one file per article: `constitution/art-024.md` is Article 24 (Labour Relations) of the Constitution, `codes/penal-code/art-001.md` is Article 1 of the Penal Code, and laws are filed by year and number, as in `acts/1973/040-on-cooperative-development-in-the-somali-democratic-republic/`.
 
-The Constitution is in English, the version the Federal Parliament publishes (it also publishes a Somali text, which is not used). The Penal Code is in Italian, the language it was enacted in, as OCR read it from a scan; neither its Somali text nor an English translation is part of this record.
+The Constitution is in English, the version the Federal Parliament publishes (its Somali text is in `constitution-somali/`). The Penal Code is in Italian, the language it was enacted in, as OCR read it from a scan; neither its Somali text nor an English translation is part of this record.
 
 ## Questions as git commands
 
 | Question | Command |
 | --- | --- |
-| Every change to Article 24 (Labour Relations) of the Constitution | `git log -p --word-diff -- provisional-constitution/art-024.md` |
-| Which version wrote each line of Article 24? | `git blame provisional-constitution/art-024.md` |
-| Every version of Article 24, with the day each took effect | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- provisional-constitution/art-024.md` |
-| Article 24 as in force on 1 January 2026 | `python tools/on.py 2026-01-01 provisional-constitution art-024` |
+| Every change to Article 24 (Labour Relations) of the Constitution | `git log -p --word-diff -- constitution/art-024.md` |
+| Which version wrote each line of Article 24? | `git blame constitution/art-024.md` |
+| Every version of Article 24, with the day each took effect | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- constitution/art-024.md` |
+| Article 24 as in force on 1 January 2026 | `python tools/on.py 2026-01-01 constitution art-024` |
 
 **Outside git**, we also host this record publicly, for free:
 
@@ -38,7 +38,7 @@ Both assistants read the record through the free Global law connector (MCP, `htt
 ```sh
 git clone --depth 1 https://github.com/lexifina/global-law && cd global-law
 python3 tools/countries.py add somalia/national/acts
-python3 tools/law.py show 2026-01-01 somalia/national/acts/provisional-constitution/art-024.md
+python3 tools/law.py show 2026-01-01 somalia/national/acts/constitution/art-024.md
 ```
 
 Opened in Claude Code, Cursor, VS Code or Codex, the clone also starts a local MCP server with the same tools ([MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md)).
@@ -55,7 +55,7 @@ The Constitution is credited to its publisher, the Federal Parliament of Somalia
 
 ## How it is checked
 
-- `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before, and compares it with the corpus the repository was built from: 0 mismatches over 2 versions (see [`REPRODUCE.md`](REPRODUCE.md)).
+- `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before, and compares it with the corpus the repository was built from: 0 mismatches over the 2 versions of the first build (see [`REPRODUCE.md`](REPRODUCE.md)); the later commits carry `In-force-basis` and `Source` trailers (see [`STRUCTURE.md`](STRUCTURE.md)).
 - Every commit's trailers parse; there are no merge commits, commit dates never go back and none is in the future. The corpus's sha256 is in [`data/corpus.sha256`](data/corpus.sha256); no second build has been compared yet.
 - The Penal Code's OCR text was compared with the scan on random pages: they matched except for misreadings like those below.
 - History is append-only: newer versions and new acts go on top (`tools/append.py`), and no published commit is rewritten.
@@ -63,7 +63,7 @@ The Constitution is credited to its publisher, the Federal Parliament of Somalia
 
 ## What it does not show
 
-- **The rest of the statute book**, including the civil and commercial codes, and any regulations, case law or laws of the federal member states.
+- **Most of the statute book.** The Civil Code (1973), the Labour Code (Law No. 36 of 2024) and most federal laws on parliament.gov.so are published only as scans, which are not read (no OCR), or as bills and unnumbered drafts with no date; laws that come into force on publication in the Official Bulletin, whose publication day is not given, are held back. No case law.
 - **Amendments to the Constitution**, including those of 2024 to Chapters 1 to 4: the Federal Parliament publishes the text as adopted and no consolidated version. The flag and emblem schedules are pictures and are not included.
 - **A clean Penal Code text.** The files are OCR text with misreadings (such as "pubplici", "precedenie", and a damaged passage in article 2): check the scan before relying on any wording. Articles 186, 226, 309, 348, 420, 438, 451 and 539 have no file of their own; their text sits at the end of the article before. Headings (Libro, Titolo, Capo) and the index are left out.
 - **The Penal Code since 1962.** It has been amended, and its status differs across Somalia, Somaliland and Puntland; this is the text as enacted.
@@ -73,11 +73,13 @@ The Constitution is credited to its publisher, the Federal Parliament of Somalia
 | Source | Kind | Past versions | Notes |
 | --- | --- | --- | --- |
 | [Federal Parliament of Somalia](https://parliament.gov.so) | Official publisher: the Provisional Constitution (English version) | no, the text as adopted | One born-digital [PDF](https://parliament.gov.so/wp-content/uploads/2024/12/Provisional-Constitution-2012.pdf), retrieved on 29 October 2026 |
+| [Federal Parliament of Somalia](https://parliament.gov.so) | Official publisher: the Somali text of the Provisional Constitution and the 1960 Constitution (English, as amended to 1963) | no | Born-digital PDFs from its media library, retrieved on 27 November 2026 |
+| [FAOLEX (FAO)](https://faolex.fao.org) | Secondary copy: federal, Somaliland and Puntland laws and regulations (`Source-status: secondary copy`) | no, each law as made | PDFs with their own text layer, some the publisher's OCR (`Text-source: publisher OCR`); retrieved on 27 November 2026 |
 | [Università Roma Tre, Archivio Leggi della Somalia (1950-1989)](https://arcadia.sba.uniroma3.it/handle/2307/17142) | Archive copy: the Penal Code (Italian), a scan of a printed edition | no, the code as enacted | A third-party copy, not a Somali government site; read with Tesseract 5.4; retrieved on 30 October 2026 |
 
 ## Licence
 
-See [`LICENSE`](LICENSE). The Federal Parliament states no licence for the Constitution, which is reproduced with attribution; laws are not protected by copyright under Article 5 of the Somali Copyright Law (Law No. 66 of 7 September 1977), though whether that law is still applied is not settled. Lexifina's arrangement, commit messages and tools are CC BY 4.0.
+See [`LICENSE`](LICENSE). The Federal Parliament states no licence for the Constitution, which is reproduced with attribution; laws are not protected by copyright under Article 5 of the Somali Copyright Law (Law No. 66 of 7 September 1977), though whether that law is still applied is not settled. Lexifina's arrangement, commit messages and tools are dedicated to the public domain (CC0 1.0); FAOLEX's terms are in the licence file.
 
 No model wrote, translated or corrected legal text, and no model runs at build time; the scripts were written by Claude Code under Lexifina's direction, and the Penal Code was read by OCR (see [`REPRODUCE.md`](REPRODUCE.md)).
 
